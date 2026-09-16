@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SUJEE GAMING STORE</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#08050d;
+    color:#fff;
+}
+
+header{
+    text-align:center;
+    padding:25px 15px;
+    background:linear-gradient(135deg,#13051f,#6815a0);
+    border-bottom:1px solid #a83cff;
+}
+
+header h1{
+    font-size:27px;
+    letter-spacing:1px;
+}
+
+header p{
+    margin-top:7px;
+    color:#d9b5f5;
+}
+
+.container{
+    width:100%;
+    max-width:720px;
+    margin:auto;
+    padding:20px;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+.product{
+    background:linear-gradient(145deg,#130c1c,#241034);
+    border:1px solid #63328a;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:15px;
+    box-shadow:0 0 18px rgba(160,50,255,.12);
+}
+
+.product h2{
+    font-size:19px;
+    color:#df9cff;
+    margin-bottom:8px;
+}
+
+.product p{
+    color:#bdb2c7;
+    margin-bottom:15px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:12px;
+    color:#fff;
+    font-size:15px;
+    font-weight:bold;
+    background:linear-gradient(90deg,#7620c7,#d000ff);
+    cursor:pointer;
+}
+
+.back{
+    background:#24182e;
+    margin-bottom:20px;
+}
+
+.plan{
+    padding:17px;
+    margin:11px 0;
+    border-radius:13px;
+    background:#150c20;
+    border:1px solid #63347c;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.plan:hover{
+    border-color:#d000ff;
+    transform:translateY(-2px);
+}
+
+.plan b{
+    color:#e2a6ff;
+}
+
+.box{
+    background:#150c20;
+    border:1px solid #69377f;
+    border-radius:15px;
+    padding:18px;
+    margin:16px 0;
+    line-height:1.8;
+}
+
+.box b{
+    color:#dd9cff;
+}
+
+label{
+    display:block;
+    margin:12px 0 5px;
+    color:#d8c8df;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #5c3970;
+    background:#0e0913;
+    color:#fff;
+    outline:none;
+}
+
+input:focus{
+    border-color:#c000ff;
+}
+
+.preview{
+    width:100%;
+    max-height:280px;
+    object-fit:contain;
+    margin-top:12px;
+    border-radius:12px;
+    display:none;
+}
+
+.small{
+    color:#9f95a8;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.success{
+    display:none;
+    margin-top:18px;
+    padding:18px;
+    border-radius:13px;
+    border:1px solid #3cae61;
+    background:#0d2415;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>SUJEE GAMING STORE</h1>
+    <p>Gaming & Digital Services</p>
+</header>
+
+<!-- HOME -->
+<section id="home" class="page active">
+<div class="container">
+
+    <div class="product">
+        <h2>🎨 GAMING LOGO DESIGN</h2>
+        <p>Custom gaming logo design service.</p>
+        <button onclick="openProduct('GAMING LOGO DESIGN')">
+            VIEW PRODUCT
+        </button>
+    </div>
+
+    <div class="product">
+        <h2>🖼️ GAMING BANNER DESIGN</h2>
+        <p>Custom gaming banner design service.</p>
+        <button onclick="openProduct('GAMING BANNER DESIGN')">
+            VIEW PRODUCT
+        </button>
+    </div>
+
+    <div class="product">
+        <h2>🎬 GAMING VIDEO EDITING</h2>
+        <p>Gaming video editing service.</p>
+        <button onclick="openProduct('GAMING VIDEO EDITING')">
+            VIEW PRODUCT
+        </button>
+    </div>
+
+    <div class="product">
+        <h2>📱 GAMING THUMBNAIL DESIGN</h2>
+        <p>YouTube and gaming thumbnail design.</p>
+        <button onclick="openProduct('GAMING THUMBNAIL DESIGN')">
+            VIEW PRODUCT
+        </button>
+    </div>
+
+    <div class="product">
+        <h2>🏆 TOURNAMENT REGISTRATION</h2>
+        <p>Gaming tournament registration service.</p>
+        <button onclick="openProduct('TOURNAMENT REGISTRATION')">
+            VIEW PRODUCT
+        </button>
+    </div>
+
+    <div class="product">
+        <h2>🎮 GAMING ACCOUNT SUPPORT</h2>
+        <p>General gaming account support service.</p>
+        <button onclick="openProduct('GAMING ACCOUNT SUPPORT')">
+            VIEW PRODUCT
+        </button>
+    </div>
+
+</div>
+</section>
+
+
+<!-- PRODUCT -->
+<section id="productPage" class="page">
+<div class="container">
+
+    <button class="back" onclick="goHome()">← BACK</button>
+
+    <h2 id="productTitle"></h2>
+
+    <br>
+    <p>Select a service package:</p>
+
+    <div class="plan" onclick="selectPlan('Basic',769)">
+        <b>BASIC</b><br>
+        Rs. 769
+    </div>
+
+    <div class="plan" onclick="selectPlan('Standard',1004)">
+        <b>STANDARD</b><br>
+        Rs. 1,004
+    </div>
+
+    <div class="plan" onclick="selectPlan('Premium',1340)">
+        <b>PREMIUM</b><br>
+        Rs. 1,340
+    </div>
+
+</div>
+</section>
+
+
+<!-- ORDER -->
+<section id="orderPage" class="page">
+<div class="container">
+
+    <button class="back" onclick="goProduct()">← BACK</button>
+
+    <h2>Complete Order</h2>
+
+    <div class="box">
+        <b>Service:</b>
+        <span id="selectedProduct"></span><br>
+
+        <b>Package:</b>
+        <span id="selectedPlan"></span><br>
+
+        <b>Amount:</b>
+        Rs. <span id="selectedAmount"></span>
+    </div>
+
+    <div class="box">
+
+        <h3>💳 PAYMENT DETAILS</h3>
+
+        <b>Bank:</b> SEYLAN BANK<br>
+        <b>Account Name:</b> S SUJEEVAN<br>
+        <b>Account Number:</b> 144014001308120
+
+        <br><br>
+
+        <p class="small">
+            Please complete the payment and upload your payment proof below.
+        </p>
+
+    </div>
+
+    <h3>Customer Details</h3>
+
+    <label>Full Name</label>
+    <input id="customerName"
+           type="text"
+           placeholder="Enter your name">
+
+    <label>Phone Number</label>
+    <input id="customerPhone"
+           type="tel"
+           placeholder="Enter phone number">
+
+    <label>Email Address</label>
+    <input id="customerEmail"
+           type="email"
+           placeholder="Enter email address">
+
+    <br>
+
+    <h3>📷 Payment Proof</h3>
+
+    <p class="small">
+        Select your payment screenshot from your phone.
+    </p>
+
+    <input id="paymentProof"
+           type="file"
+           accept="image/*"
+           onchange="showPreview(event)">
+
+    <img id="proofPreview"
+         class="preview">
+
+    <br><br>
+
+    <button onclick="confirmOrder()">
+        CONFIRM ORDER
+    </button>
+
+    <div id="success" class="success">
+
+        ✅ Order information is ready.
+
+        <br><br>
+
+        <button onclick="sendWhatsApp()">
+            SEND ORDER VIA WHATSAPP
+        </button>
+
+    </div>
+
+</div>
+</section>
+
+
+<script>
+
+let productName = "";
+let planName = "";
+let amount = "";
+
+
+/* PRODUCT OPEN */
+function openProduct(name){
+
+    productName = name;
+
+    document.getElementById("productTitle").innerText = name;
+
+    document.getElementById("home")
+        .classList.remove("active");
+
+    document.getElementById("productPage")
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+}
+
+
+/* PLAN */
+function selectPlan(plan,price){
+
+    planName = plan;
+    amount = price;
+
+    document.getElementById("selectedProduct")
+        .innerText = productName;
+
+    document.getElementById("selectedPlan")
+        .innerText = planName;
+
+    document.getElementById("selectedAmount")
+        .innerText = amount;
+
+    document.getElementById("productPage")
+        .classList.remove("active");
+
+    document.getElementById("orderPage")
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+}
+
+
+/* HOME */
+function goHome(){
+
+    document.getElementById("productPage")
+        .classList.remove("active");
+
+    document.getElementById("home")
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+}
+
+
+/* PRODUCT BACK */
+function goProduct(){
+
+    document.getElementById("orderPage")
+        .classList.remove("active");
+
+    document.getElementById("productPage")
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+}
+
+
+/* IMAGE PREVIEW */
+function showPreview(event){
+
+    const file = event.target.files[0];
+
+    if(!file) return;
+
+    const image =
+        document.getElementById("proofPreview");
+
+    image.src = URL.createObjectURL(file);
+
+    image.style.display = "block";
+}
+
+
+/* CONFIRM */
+function confirmOrder(){
+
+    const name =
+        document.getElementById("customerName").value.trim();
+
+    const phone =
+        document.getElementById("customerPhone").value.trim();
+
+    const email =
+        document.getElementById("customerEmail").value.trim();
+
+    const proof =
+        document.getElementById("paymentProof").files.length;
+
+
+    if(!name || !phone || !email){
+
+        alert("Please enter your name, phone number and email.");
+
+        return;
+    }
+
+
+    if(!proof){
+
+        alert("Please upload your payment screenshot.");
+
+        return;
+    }
+
+
+    document.getElementById("success")
+        .style.display = "block";
+
+    window.scrollTo(0,document.body.scrollHeight);
+}
+
+
+/* WHATSAPP ORDER */
+function sendWhatsApp(){
+
+    const name =
+        document.getElementById("customerName").value.trim();
+
+    const phone =
+        document.getElementById("customerPhone").value.trim();
+
+    const email =
+        document.getElementById("customerEmail").value.trim();
+
+
+    /* YOUR WHATSAPP NUMBER */
+    const YOUR_WHATSAPP_NUMBER = "94723618154";
+
+
+    const message =
+        "NEW GAMING SERVICE ORDER\n\n" +
+
+        "Service: " + productName + "\n" +
+
+        "Package: " + planName + "\n" +
+
+        "Amount: Rs. " + amount + "\n\n" +
+
+        "Customer Name: " + name + "\n" +
+
+        "Phone: " + phone + "\n" +
+
+        "Email: " + email + "\n\n" +
+
+        "Payment Proof: Uploaded";
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        YOUR_WHATSAPP_NUMBER +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(whatsappURL,"_blank");
+}
+
+</script>
+
+</body>
+  </html>
